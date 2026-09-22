@@ -219,6 +219,12 @@ class ClientFeatureRepository {
         case SSEResultState.deleteFeature:
           _deleteFeature(FeatureState.fromJson(data));
           break;
+        case SSEResultState.config:
+        case SSEResultState.error:
+          // Not handled by the repository - the transport layer deals with
+          // these. Listed explicitly because Dart 3 requires enum switches to
+          // be exhaustive.
+          break;
       }
     }
   }
